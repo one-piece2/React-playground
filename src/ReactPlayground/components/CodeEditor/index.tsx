@@ -4,6 +4,8 @@ import FileNameList from "./FileNameList";
 import { PlaygroundContext } from "../../PlaygroundContext";
 import { type File } from "../../PlaygroundContext";
 import { debounce } from "lodash-es";
+
+
 export default function CodeEditor() {
   // const file = {
   //       name: 'guang.tsx',
@@ -16,7 +18,8 @@ const {
     files, 
     setFiles, 
     selectedFileName, 
-    setSelectedFileName
+  
+    theme
 } = useContext(PlaygroundContext)
 
 
@@ -30,7 +33,7 @@ const file:File = files[selectedFileName];
     <div style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
         <FileNameList/>
         {/* 编辑是一个频繁的事件，加一个防抖 */}
-         <Editor file={file} onChange={debounce(onEditorChange,500)}/>
+         <Editor file={file} onChange={debounce(onEditorChange,500)} options={{ theme:`vs-${theme}` }}/>
     </div>
   )
 }
