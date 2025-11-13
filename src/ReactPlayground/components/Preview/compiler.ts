@@ -1,5 +1,5 @@
 import { transform } from "@babel/standalone";
-import { type Files,type File } from "../../PlaygroundContext";
+import { type Files,type File } from "../../types";
 import { ENTRY_FILE_NAME } from "../../files";
 import type { PluginObj } from "@babel/core";
 

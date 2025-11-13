@@ -1,4 +1,4 @@
-import {type Files } from './PlaygroundContext'
+import {type Files } from './types'
 //加？raw 是 Vite 的特殊导入语法，表示将文件内容作为字符串导入
 import importMap from './template/import-map.json?raw'
 import AppCss from './template/App.css?raw'

@@ -2,7 +2,7 @@ import { useContext } from "react";
 import Editor from "./Editor";
 import FileNameList from "./FileNameList";
 import { PlaygroundContext } from "../../PlaygroundContext";
-import { type File } from "../../PlaygroundContext";
+import { type File } from "../../types";
 import { debounce } from "lodash-es";
 
 
