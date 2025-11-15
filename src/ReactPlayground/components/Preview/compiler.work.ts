@@ -111,3 +111,24 @@ export const compile = (files: Files) => {
   const main = files[ENTRY_FILE_NAME];
   return babelTransform(ENTRY_FILE_NAME, main.value, files);
 };
+
+
+
+self.addEventListener('message', async ({data}) => {
+  const { type, fi } = data;
+  if(type === 'COMPILE') {
+    try{
+      const compiledCode =  compile(fi);
+      self.postMessage({
+        type: 'COMPILED_CODE',
+        data: compiledCode,
+      })
+    }catch(e){
+      self.postMessage({
+        type: 'COMPILE_ERROR',
+        data: e instanceof Error ? e.message : String(e),
+      })
+    }
+    
+  }
+})
