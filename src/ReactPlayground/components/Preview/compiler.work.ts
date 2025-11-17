@@ -75,6 +75,7 @@ function customResolver(files: Files): PluginObj {
           } else if (file.name.endsWith(".json")) {
             path.node.source.value = json2Js(file);
           } else {
+            
             path.node.source.value = URL.createObjectURL(
               new Blob([babelTransform(file.name, file.value, files)], {
                 type: "application/javascript",

@@ -69,7 +69,7 @@ export const PlaygroundProvider = (props: PropsWithChildren) => {
   useEffect(()=>{
     //JSON.stringify作用是将一个JavaScript对象转换为一个JSON字符串
     const hash=compress(JSON.stringify(files))
-    //把hash编码后设置到url中 ，还要encodeURIComponent编码一次 把url里不支持的字符编码一下
+    //把hash编码后设置到url中 ，还要encodeURIComponent编码一次 把url里不支持的字符编码一下 后续还要decodeURIComponent解码一次
     window.location.hash=encodeURIComponent(hash)
   },[files])
 
